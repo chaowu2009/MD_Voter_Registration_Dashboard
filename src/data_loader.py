@@ -14,6 +14,7 @@ EXPECTED_COLUMNS = ["year", "month", "county", "party", "registered"]
 
 COLUMN_ALIASES = {
     "county": "county",
+    "6": "county",
     "county_name": "county",
     "jurisdiction": "county",
     "party": "party",
@@ -25,6 +26,34 @@ COLUMN_ALIASES = {
     "total": "registered",
     "year": "year",
     "month": "month",
+}
+
+KNOWN_COUNTY_TOKENS = {
+    "ALLEGANY",
+    "ANNE ARUNDEL",
+    "BALTIMORE CITY",
+    "BALTIMORE",
+    "CALVERT",
+    "CAROLINE",
+    "CARROLL",
+    "CECIL",
+    "CHARLES",
+    "DORCHESTER",
+    "FREDERICK",
+    "GARRETT",
+    "HARFORD",
+    "HOWARD",
+    "KENT",
+    "MONTGOMERY",
+    "PR. GEORGE",
+    "QUEEN ANNE",
+    "ST. MARY",
+    "SOMERSET",
+    "TALBOT",
+    "WASHINGTON",
+    "WICOMICO",
+    "WORCESTER",
+    "TOTAL",
 }
 
 WIDE_PARTY_COLUMN_MAP = {
@@ -47,6 +76,30 @@ def _normalize_column_name(name: str) -> str:
 def _coerce_int_series(series: pd.Series) -> pd.Series:
     text = series.astype(str).str.replace(",", "", regex=False).str.strip()
     return pd.to_numeric(text, errors="coerce")
+
+
+def _detect_county_like_column(df: pd.DataFrame) -> str | None:
+    """Detect a column whose values look like county names."""
+    best_col = None
+    best_score = 0
+
+    for col in df.columns:
+        values = df[col].dropna().astype(str).str.strip().str.upper()
+        if values.empty:
+            continue
+
+        score = 0
+        for value in values.head(40):
+            if any(token in value for token in KNOWN_COUNTY_TOKENS):
+                score += 1
+
+        if score > best_score:
+            best_score = score
+            best_col = col
+
+    if best_score >= 3:
+        return best_col
+    return None
 
 
 def _normalize_wide_party_layout(
@@ -106,6 +159,11 @@ def normalize_dataframe(
 
     normalized = df.copy()
     normalized.columns = [_normalize_column_name(col) for col in normalized.columns]
+
+    if "county" not in normalized.columns:
+        county_like = _detect_county_like_column(normalized)
+        if county_like:
+            normalized = normalized.rename(columns={county_like: "county"})
 
     required_core = ["county", "party", "registered"]
     missing = [col for col in required_core if col not in normalized.columns]

@@ -28,3 +28,15 @@
 - What risks remain?
   - Some PDFs may still use layouts that require additional heuristics or OCR.
   - County-name normalization (for punctuation/abbreviations) may need stricter canonical mapping later.
+
+## Entry 2026-05-21 - Stage 4 critic review
+- Mode: success
+- Finding: Function longer than 30 lines: src\data_loader.py:_normalize_wide_party_layout (43 lines)
+- Finding: Function longer than 30 lines: src\data_loader.py:normalize_dataframe (46 lines)
+- Finding: Potential missing error handling in src\data_loader.py
+- Finding: Function longer than 30 lines: src\pdf_parser.py:parse_pdf_tables (34 lines)
+- Finding: Function longer than 30 lines: src\sbe_scraper.py:download_report (43 lines)
+- Finding: Function longer than 30 lines: src\agents\orchestrator.py:run_workflow (35 lines)
+- Finding: Function longer than 30 lines: src\agents\planner.py:run (31 lines)
+- Finding: Function longer than 30 lines: src\agents\qa_agent.py:run (47 lines)
+- Finding: Possible duplicate logic across files ['src\\agents\\analytics_agent.py', 'src\\analytics.py']: validate_dataframe(df, ["year", "month", "county", "party", "registered"])

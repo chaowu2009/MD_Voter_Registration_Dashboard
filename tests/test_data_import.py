@@ -65,6 +65,23 @@ def test_normalize_dataframe_handles_wide_party_layout():
     assert normalized["registered"].sum() == 64650
 
 
+def test_normalize_dataframe_detects_county_like_column_with_bad_header():
+    raw = pd.DataFrame(
+        {
+            "6": ["ALLEGANY", "BALTIMORE", "TOTAL"],
+            "total_active_registration": ["100", "200", "300"],
+            "none_8": ["70", "150", "220"],
+            "none_9": ["1", "2", "3"],
+            "none_10": ["1", "2", "3"],
+            "none_11": ["20", "40", "60"],
+            "none_12": ["8", "6", "14"],
+        }
+    )
+    normalized = normalize_dataframe(raw, default_year=2025, default_month=12)
+    assert list(normalized.columns) == ["year", "month", "county", "party", "registered"]
+    assert "ALLEGANY" in set(normalized["county"])
+
+
 def test_download_report_retries_then_succeeds(monkeypatch, tmp_path: Path):
     calls = {"count": 0}
 
