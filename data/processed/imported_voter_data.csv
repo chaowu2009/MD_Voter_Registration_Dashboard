@@ -1,0 +1,151 @@
+year,month,county,party,registered,source_url
+2025,2,ALLEGANY,Democratic,10828,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ANNE ARUNDEL,Democratic,173564,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CITY,Democratic,300359,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CO.,Democratic,309799,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CALVERT,Democratic,23592,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CAROLINE,Democratic,6003,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CARROLL,Democratic,33197,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CECIL,Democratic,19015,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CHARLES,Democratic,76795,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,DORCHESTER,Democratic,9578,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,FREDERICK,Democratic,79237,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,GARRETT,Democratic,3443,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HARFORD,Democratic,64526,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HOWARD,Democratic,123555,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,KENT,Democratic,5696,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,MONTGOMERY,Democratic,409102,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,PR. GEORGE'S,Democratic,462824,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,QUEEN ANNE'S,Democratic,11225,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ST. MARY'S,Democratic,25016,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,SOMERSET,Democratic,5353,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TALBOT,Democratic,10546,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WASHINGTON,Democratic,30614,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WICOMICO,Democratic,26217,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WORCESTER,Democratic,13620,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TOTAL,Democratic,2233704,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ALLEGANY,Republican,23647,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ANNE ARUNDEL,Republican,131403,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CITY,Republican,29792,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CO.,Republican,142326,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CALVERT,Republican,29071,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CAROLINE,Republican,11227,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CARROLL,Republican,64877,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CECIL,Republican,35975,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CHARLES,Republican,23945,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,DORCHESTER,Republican,9695,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,FREDERICK,Republican,70075,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,GARRETT,Republican,14111,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HARFORD,Republican,82547,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HOWARD,Republican,49232,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,KENT,Republican,5558,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,MONTGOMERY,Republican,101982,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,PR. GEORGE'S,Republican,42645,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,QUEEN ANNE'S,Republican,20857,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ST. MARY'S,Republican,33587,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,SOMERSET,Republican,6366,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TALBOT,Republican,11787,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WASHINGTON,Republican,45571,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WICOMICO,Republican,24864,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WORCESTER,Republican,20176,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TOTAL,Republican,1031316,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ALLEGANY,Green,52,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ANNE ARUNDEL,Green,455,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CITY,Green,754,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CO.,Green,743,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CALVERT,Green,61,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CAROLINE,Green,25,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CARROLL,Green,140,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CECIL,Green,74,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CHARLES,Green,121,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,DORCHESTER,Green,19,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,FREDERICK,Green,233,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,GARRETT,Green,16,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HARFORD,Green,160,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HOWARD,Green,295,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,KENT,Green,14,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,MONTGOMERY,Green,913,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,PR. GEORGE'S,Green,705,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,QUEEN ANNE'S,Green,47,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ST. MARY'S,Green,68,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,SOMERSET,Green,16,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TALBOT,Green,21,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WASHINGTON,Green,128,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WICOMICO,Green,71,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WORCESTER,Green,44,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TOTAL,Green,5175,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ALLEGANY,Working Class,55,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ANNE ARUNDEL,Working Class,243,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CITY,Working Class,413,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CO.,Working Class,409,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CALVERT,Working Class,35,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CAROLINE,Working Class,23,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CARROLL,Working Class,64,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CECIL,Working Class,74,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CHARLES,Working Class,90,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,DORCHESTER,Working Class,23,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,FREDERICK,Working Class,113,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,GARRETT,Working Class,14,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HARFORD,Working Class,132,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HOWARD,Working Class,75,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,KENT,Working Class,10,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,MONTGOMERY,Working Class,253,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,PR. GEORGE'S,Working Class,349,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,QUEEN ANNE'S,Working Class,22,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ST. MARY'S,Working Class,54,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,SOMERSET,Working Class,11,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TALBOT,Working Class,8,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WASHINGTON,Working Class,92,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WICOMICO,Working Class,61,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WORCESTER,Working Class,22,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TOTAL,Working Class,2645,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ALLEGANY,Unaffiliated,9017,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ANNE ARUNDEL,Unaffiliated,106911,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CITY,Unaffiliated,64900,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CO.,Unaffiliated,122520,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CALVERT,Unaffiliated,16808,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CAROLINE,Unaffiliated,4978,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CARROLL,Unaffiliated,30954,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CECIL,Unaffiliated,17435,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CHARLES,Unaffiliated,25832,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,DORCHESTER,Unaffiliated,4407,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,FREDERICK,Unaffiliated,55511,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,GARRETT,Unaffiliated,3136,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HARFORD,Unaffiliated,46108,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HOWARD,Unaffiliated,64725,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,KENT,Unaffiliated,2851,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,MONTGOMERY,Unaffiliated,177721,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,PR. GEORGE'S,Unaffiliated,105398,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,QUEEN ANNE'S,Unaffiliated,9093,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ST. MARY'S,Unaffiliated,18505,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,SOMERSET,Unaffiliated,2575,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TALBOT,Unaffiliated,6132,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WASHINGTON,Unaffiliated,24602,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WICOMICO,Unaffiliated,15452,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WORCESTER,Unaffiliated,9305,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TOTAL,Unaffiliated,944876,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ALLEGANY,Other,786,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ANNE ARUNDEL,Other,6792,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CITY,Other,6638,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,BALTIMORE CO.,Other,10274,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CALVERT,Other,1156,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CAROLINE,Other,373,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CARROLL,Other,2121,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CECIL,Other,1346,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,CHARLES,Other,1700,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,DORCHESTER,Other,391,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,FREDERICK,Other,2971,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,GARRETT,Other,308,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HARFORD,Other,3509,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,HOWARD,Other,3501,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,KENT,Other,215,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,MONTGOMERY,Other,9726,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,PR. GEORGE'S,Other,14254,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,QUEEN ANNE'S,Other,605,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,ST. MARY'S,Other,1294,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,SOMERSET,Other,239,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TALBOT,Other,456,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WASHINGTON,Other,1706,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WICOMICO,Other,1284,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,WORCESTER,Other,797,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf
+2025,2,TOTAL,Other,72442,https://elections.maryland.gov/pdf/vrar/2025/MSR-2025_02.pdf

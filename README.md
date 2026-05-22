@@ -69,3 +69,41 @@ Application code (such as streamlit_app.py, src/, tests/, and data/) will be gen
 
 - Stages 1-3 provide the highest immediate engineering value.
 - Stages 4-5 are advanced and should be tackled after a stable baseline is working.
+
+## Stage 2 Import Workflow
+
+The app now includes a Data Import page that executes this flow:
+
+1. Scrape report links from the Maryland SBE voter registration stats page.
+2. Fallback to `data/fixtures/sbe_stats_fixture.html` when live page access fails.
+3. Download selected PDF reports to `data/raw/`.
+4. Parse PDF tables with `pdfplumber`.
+5. Normalize parsed columns into the Stage 1 schema:
+	 - year
+	 - month
+	 - county
+	 - party
+	 - registered
+6. Append parsed records to `data/processed/imported_voter_data.csv`.
+7. Use processed data for dashboard pages when available, otherwise fallback to `data/sample.csv`.
+
+## Troubleshooting Data Import
+
+- No links found from live page:
+	- Confirm internet access.
+	- Use fixture fallback (`data/fixtures/sbe_stats_fixture.html`) for scraper validation.
+- PDF download fails:
+	- Check URL validity and access permissions.
+	- Retry with a different report link.
+- PDF parse fails:
+	- Some report layouts vary by month and may not expose consistent table headers.
+	- Validate extracted table columns and row counts in the Data Import page status preview.
+- Normalization fails:
+	- Ensure parsed table includes county, party, and registration count fields.
+
+## Known Parsing Limitations
+
+- Maryland SBE PDF table layouts are not guaranteed to be identical across reports.
+- Multi-line cells and merged headers can reduce parser accuracy.
+- Current parser is table-based only and does not yet handle scanned-image PDFs.
+- Default `year` and `month` values are used if the parser cannot extract them from table columns.

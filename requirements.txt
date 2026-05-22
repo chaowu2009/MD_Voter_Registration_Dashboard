@@ -2,3 +2,6 @@ streamlit
 pandas
 plotly
 pytest
+requests
+beautifulsoup4
+pdfplumber
