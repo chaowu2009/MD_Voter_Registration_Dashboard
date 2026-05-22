@@ -192,6 +192,7 @@ def normalize_dataframe(
 
     normalized["county"] = normalized["county"].astype(str).str.strip()
     normalized["party"] = normalized["party"].astype(str).str.strip()
+    normalized = normalized[normalized["county"].str.upper() != "TOTAL"].copy()
 
     if source_url:
         normalized["source_url"] = source_url

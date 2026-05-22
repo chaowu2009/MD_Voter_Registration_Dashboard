@@ -2,13 +2,16 @@ import pandas as pd
 
 from src.analytics import (
     county_party_comparison,
+    county_party_comparison_latest,
     county_trend,
+    county_trend_change_pct,
     data_quality_issues,
     fastest_growing_counties,
     party_breakdown,
     party_share_change,
     top_counties,
     total_registered,
+    total_registered_latest,
     validate_dataframe,
 )
 
@@ -37,6 +40,13 @@ def test_total_registered():
     assert total_registered(df) == 14105
 
 
+def test_total_registered_latest_uses_only_latest_month():
+    df = sample_df()
+    total, year, month = total_registered_latest(df)
+    assert (year, month) == (2025, 2)
+    assert total == 7105
+
+
 def test_party_breakdown_has_expected_columns():
     df = sample_df()
     result = party_breakdown(df)
@@ -62,6 +72,21 @@ def test_county_party_comparison_single_county():
     df = sample_df()
     result = county_party_comparison(df, "Baltimore")
     assert set(result["party"]) == {"Democratic", "Republican", "Unaffiliated"}
+
+
+def test_county_party_comparison_latest_uses_latest_month():
+    df = sample_df()
+    result, year, month = county_party_comparison_latest(df, "Baltimore")
+    assert (year, month) == (2025, 2)
+    assert result["registered"].sum() == 4780
+
+
+def test_county_trend_change_pct_returns_month_over_month_change():
+    df = sample_df()
+    result = county_trend_change_pct(df, "Baltimore")
+    assert "change_pct" in result.columns
+    assert len(result) == 1
+    assert round(float(result.iloc[0]["change_pct"]), 2) == 1.70
 
 
 def test_fastest_growing_counties_has_growth_columns():

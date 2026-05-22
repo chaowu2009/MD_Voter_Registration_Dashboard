@@ -82,6 +82,20 @@ def test_normalize_dataframe_detects_county_like_column_with_bad_header():
     assert "ALLEGANY" in set(normalized["county"])
 
 
+def test_normalize_dataframe_drops_total_summary_rows():
+    raw = pd.DataFrame(
+        {
+            "county": ["ALLEGANY", "TOTAL"],
+            "party": ["Democratic", "Democratic"],
+            "registered": ["100", "999"],
+        }
+    )
+
+    normalized = normalize_dataframe(raw, default_year=2025, default_month=1)
+    assert "TOTAL" not in set(normalized["county"])
+    assert normalized["registered"].sum() == 100
+
+
 def test_download_report_retries_then_succeeds(monkeypatch, tmp_path: Path):
     calls = {"count": 0}
 

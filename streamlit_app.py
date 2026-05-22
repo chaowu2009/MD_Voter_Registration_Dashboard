@@ -3,14 +3,15 @@ import plotly.express as px
 import pandas as pd
 
 from src.analytics import (
-    county_party_comparison,
+    county_party_comparison_latest,
     county_trend,
+    county_trend_change_pct,
     fastest_growing_counties,
     load_data,
     party_breakdown,
     party_share_change,
     top_counties,
-    total_registered,
+    total_registered_latest,
     data_quality_issues,
     validate_dataframe,
 )
@@ -31,22 +32,38 @@ def get_data():
 def render_overview(df):
     st.header("Overview")
 
-    total = total_registered(df)
+    total, latest_year, latest_month = total_registered_latest(df)
+    latest_df = df[(df["year"] == latest_year) & (df["month"] == latest_month)].copy()
     st.metric("Statewide Total Registered Voters", f"{total:,}")
+    st.caption(f"Latest reporting month: {latest_year}-{latest_month:02d}")
 
-    breakdown = party_breakdown(df)
+    breakdown = party_breakdown(latest_df)
+    breakdown_total = breakdown["registered"].sum()
+    breakdown["share_pct"] = (breakdown["registered"] / breakdown_total) * 100
+    breakdown["label"] = breakdown.apply(
+        lambda row: f"{int(row['registered']):,} ({row['share_pct']:.1f}%)",
+        axis=1,
+    )
     fig_breakdown = px.bar(
         breakdown,
         x="party",
         y="registered",
-        title="Statewide Party Breakdown",
-        text="registered",
+        title=f"Statewide Party Breakdown ({latest_year}-{latest_month:02d})",
+        text="label",
+        custom_data=["share_pct"],
     )
-    fig_breakdown.update_traces(texttemplate="%{text:,.0f}", textposition="outside")
+    fig_breakdown.update_traces(
+        textposition="outside",
+        hovertemplate="Party=%{x}<br>Registered=%{y:,.0f}<br>Share=%{customdata[0]:.2f}%<extra></extra>",
+    )
     st.plotly_chart(fig_breakdown, use_container_width=True)
 
     st.subheader("Top Counties by Registration")
-    st.dataframe(top_counties(df, n=10), use_container_width=True, hide_index=True)
+    top_counties_df = top_counties(latest_df, n=10).copy()
+    top_counties_df["share_pct"] = (top_counties_df["registered"] / total) * 100
+    top_counties_df = top_counties_df.rename(columns={"share_pct": "share_percent"})
+    top_counties_df["share_percent"] = top_counties_df["share_percent"].map(lambda value: f"{value:.2f}%")
+    st.dataframe(top_counties_df, use_container_width=True, hide_index=True)
 
 
 def render_county_trends(df):
@@ -65,12 +82,24 @@ def render_county_trends(df):
     )
     st.plotly_chart(fig_trend, use_container_width=True)
 
-    party_df = county_party_comparison(df, selected_county)
+    change_df = county_trend_change_pct(df, selected_county)
+    fig_change = px.line(
+        change_df,
+        x="date",
+        y="change_pct",
+        markers=True,
+        title=f"Month-over-Month Change (%) - {selected_county}",
+    )
+    fig_change.update_layout(yaxis_title="percent change")
+    fig_change.update_traces(hovertemplate="Date=%{x|%b %Y}<br>Change=%{y:.2f}%<extra></extra>")
+    st.plotly_chart(fig_change, use_container_width=True)
+
+    party_df, latest_year, latest_month = county_party_comparison_latest(df, selected_county)
     fig_party = px.bar(
         party_df,
         x="party",
         y="registered",
-        title=f"Party Comparison - {selected_county}",
+        title=f"Party Comparison - {selected_county} ({latest_year}-{latest_month:02d})",
         text="registered",
     )
     fig_party.update_traces(texttemplate="%{text:,.0f}", textposition="outside")

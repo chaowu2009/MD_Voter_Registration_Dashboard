@@ -59,6 +59,22 @@ def total_registered(df: pd.DataFrame) -> int:
     return int(grouped["registered"].sum())
 
 
+def total_registered_latest(df: pd.DataFrame) -> tuple[int, int, int]:
+    """Return statewide total for the latest reporting month and its year/month."""
+    validate_dataframe(df, ["year", "month", "county", "party", "registered"])
+    latest = (
+        df[["year", "month"]]
+        .drop_duplicates()
+        .sort_values(["year", "month"])
+        .iloc[-1]
+    )
+    year = int(latest["year"])
+    month = int(latest["month"])
+    latest_df = df[(df["year"] == year) & (df["month"] == month)]
+    total = int(latest_df.groupby(["county", "party"], as_index=False)["registered"].sum()["registered"].sum())
+    return total, year, month
+
+
 def party_breakdown(df: pd.DataFrame) -> pd.DataFrame:
     """Return statewide totals by party."""
     validate_dataframe(df, ["party", "registered"])
@@ -84,12 +100,34 @@ def county_trend(df: pd.DataFrame, county: str) -> pd.DataFrame:
     return trend.sort_values("date")
 
 
+def county_trend_change_pct(df: pd.DataFrame, county: str) -> pd.DataFrame:
+    """Return month-over-month percentage change for a county's total registrations."""
+    trend = county_trend(df, county).copy()
+    trend["change_pct"] = trend["registered"].pct_change() * 100
+    return trend.dropna(subset=["change_pct"])
+
+
 def county_party_comparison(df: pd.DataFrame, county: str) -> pd.DataFrame:
     """Return county totals split by party."""
     validate_dataframe(df, ["county", "party", "registered"])
     county_df = df[df["county"] == county]
     result = county_df.groupby("party", as_index=False)["registered"].sum()
     return result.sort_values("registered", ascending=False)
+
+
+def county_party_comparison_latest(df: pd.DataFrame, county: str) -> tuple[pd.DataFrame, int, int]:
+    """Return county totals split by party for the latest available month."""
+    validate_dataframe(df, ["year", "month", "county", "party", "registered"])
+    county_df = df[df["county"] == county].copy()
+    if county_df.empty:
+        return county_party_comparison(df, county), 0, 0
+
+    latest = county_df[["year", "month"]].drop_duplicates().sort_values(["year", "month"]).iloc[-1]
+    year = int(latest["year"])
+    month = int(latest["month"])
+    latest_df = county_df[(county_df["year"] == year) & (county_df["month"] == month)]
+    result = latest_df.groupby("party", as_index=False)["registered"].sum().sort_values("registered", ascending=False)
+    return result, year, month
 
 
 def fastest_growing_counties(df: pd.DataFrame, n: int = 10) -> pd.DataFrame:
