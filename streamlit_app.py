@@ -11,12 +11,16 @@ from src.analytics import (
     party_share_change,
     top_counties,
     total_registered,
+    data_quality_issues,
+    validate_dataframe,
 )
 from src.data_loader import load_dashboard_data, parse_and_store_pdf
+from src.logging_config import get_logger
 from src.sbe_scraper import download_reports, scrape_report_links
 
 
 st.set_page_config(page_title="Maryland Voter Registration Dashboard", layout="wide")
+logger = get_logger(__name__)
 
 
 @st.cache_data
@@ -172,11 +176,24 @@ def main():
     try:
         df, data_source = get_data()
     except FileNotFoundError:
+        logger.exception("Data load operation failed: fallback file data/sample.csv was not found")
         st.error("Could not find data/sample.csv. Add the file and rerun the app.")
         st.stop()
     except Exception as exc:
+        logger.exception("Data load operation failed while reading dashboard input data")
         st.error(f"Failed to load CSV: {exc}")
         st.stop()
+
+    try:
+        validate_dataframe(df, ["year", "month", "county", "party", "registered"])
+    except ValueError as exc:
+        logger.exception("Validation failed for required dashboard dataframe columns")
+        st.error(f"Data validation error: {exc}")
+        st.stop()
+
+    quality_df = data_quality_issues(df)
+    if not quality_df.empty:
+        st.sidebar.warning(f"Data quality issues found: {len(quality_df)} rows")
 
     if data_source == "fallback":
         st.sidebar.info("Using fallback sample data.")

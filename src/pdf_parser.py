@@ -6,7 +6,9 @@ from pathlib import Path
 import pandas as pd
 import pdfplumber
 
-logger = logging.getLogger(__name__)
+from src.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 def _clean_columns(columns: list[str]) -> list[str]:

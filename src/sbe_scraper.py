@@ -2,15 +2,18 @@ from __future__ import annotations
 
 import logging
 from pathlib import Path
+import time
 from typing import Any
 from urllib.parse import urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
 
+from src.logging_config import get_logger
+
 STATS_URL = "https://elections.maryland.gov/voter_registration/stats.html"
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def _extract_pdf_links(html: str, base_url: str) -> list[dict[str, str]]:
@@ -71,7 +74,13 @@ def scrape_report_links(
     return [], "none"
 
 
-def download_report(url: str, output_dir: str = "data/raw", timeout: int = 60) -> Path:
+def download_report(
+    url: str,
+    output_dir: str = "data/raw",
+    timeout: int = 60,
+    max_retries: int = 3,
+    backoff_seconds: float = 1.0,
+) -> Path:
     """Download a PDF report URL into the raw data folder."""
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -82,12 +91,32 @@ def download_report(url: str, output_dir: str = "data/raw", timeout: int = 60) -
 
     destination = output_path / filename
 
-    response = requests.get(url, timeout=timeout)
-    response.raise_for_status()
+    last_error: Exception | None = None
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = requests.get(url, timeout=timeout)
+            response.raise_for_status()
+            destination.write_bytes(response.content)
+            logger.info("Downloaded %s to %s on attempt %s", url, destination, attempt)
+            return destination
+        except requests.RequestException as exc:
+            last_error = exc
+            if attempt == max_retries:
+                break
+            delay = backoff_seconds * (2 ** (attempt - 1))
+            logger.warning(
+                "Download failed for URL '%s' on attempt %s/%s (%s). Retrying in %.1f seconds.",
+                url,
+                attempt,
+                max_retries,
+                exc,
+                delay,
+            )
+            time.sleep(delay)
 
-    destination.write_bytes(response.content)
-    logger.info("Downloaded %s to %s", url, destination)
-    return destination
+    raise requests.RequestException(
+        f"Failed download operation for URL '{url}' after {max_retries} attempts: {last_error}"
+    )
 
 
 def download_reports(urls: list[str], output_dir: str = "data/raw") -> list[dict[str, Any]]:

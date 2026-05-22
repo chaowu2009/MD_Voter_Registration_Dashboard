@@ -5,9 +5,10 @@ from pathlib import Path
 
 import pandas as pd
 
+from src.logging_config import get_logger
 from src.pdf_parser import parse_pdf_tables
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 EXPECTED_COLUMNS = ["year", "month", "county", "party", "registered"]
 
@@ -161,11 +162,23 @@ def parse_and_store_pdf(
     pdf_path: str,
     source_url: str = "",
     output_path: str = "data/processed/imported_voter_data.csv",
+    cache_dir: str = "data/cache/parsed_tables",
     default_year: int = 2025,
     default_month: int = 1,
 ) -> tuple[pd.DataFrame, Path]:
     """Parse a downloaded PDF, normalize it, and append to processed CSV."""
-    parsed = parse_pdf_tables(pdf_path)
+    pdf_file = Path(pdf_path)
+    cache_path = Path(cache_dir) / f"{pdf_file.stem}.csv"
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if cache_path.exists():
+        logger.info("Using cached parsed table for file '%s' at '%s'", pdf_path, cache_path)
+        parsed = pd.read_csv(cache_path)
+    else:
+        parsed = parse_pdf_tables(pdf_path)
+        parsed.to_csv(cache_path, index=False)
+        logger.info("Cached parsed table for file '%s' at '%s'", pdf_path, cache_path)
+
     normalized = normalize_dataframe(
         parsed,
         default_year=default_year,
